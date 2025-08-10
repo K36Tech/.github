@@ -1,66 +1,62 @@
-name: "Bug report"
-description: "Reporta un error"
-title: ""
-labels: ["🐞 Bug"]
+name: "🐛 Bug Report"
+description: Create a new ticket for a bug.
+title: "🐛 [BUG] - <title>"
+labels: [
+  "bug"
+]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ## Importante
-        - [ ] Verifiqué que este problema ya no se hubiese reportado
-
   - type: textarea
     id: description
     attributes:
-      label: "Descripción"
-      placeholder: "Una breve descripción del error..."
+      label: "Description"
+      description: Please enter an explicit description of your issue
+      placeholder: Short and explicit description of your incident...
     validations:
       required: true
-
   - type: input
     id: reprod-url
     attributes:
-      label: "URL"
-      placeholder: "ex. https://google.com/"
-      description: "Si es necesario dirigirse a una url en específico, ingrésela."
+      label: "Reproduction URL"
+      description: Please enter your GitHub URL to provide a reproduction of the issue
+      placeholder: ex. https://github.com/USERNAME/REPO-NAME
     validations:
-      required: false
-
+      required: true
   - type: textarea
     id: reprod
     attributes:
-      label: "Pasos para reproducir"
-      placeholder: |
-        1. Ir a '...'
-        2. Click en '....'
-        3. Scroll en '....'
-        4. Error
+      label: "Reproduction steps"
+      description: Please enter an explicit description of your issue
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      render: bash
     validations:
       required: true
-
   - type: textarea
     id: screenshot
     attributes:
       label: "Screenshots"
-      description: "Si es necesario, adjunte capturas de pantalla del error."
-      placeholder: "Arrastra y suelta imágenes aquí o pega URLs"
+      description: If applicable, add screenshots to help explain your problem.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
     validations:
       required: false
-
   - type: textarea
     id: logs
     attributes:
       label: "Logs"
-      description: "Si aplica, pegue cualquier salida relevante del error. Se formateará automáticamente como código, por lo que no es necesario utilizar comillas invertidas."
-      render: shell
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: bash
     validations:
       required: false
-
   - type: dropdown
     id: browsers
     attributes:
       label: "Browsers"
-      description: "What browsers are you seeing the problem on?"
+      description: What browsers are you seeing the problem on ?
       multiple: true
       options:
         - Firefox
@@ -70,12 +66,11 @@ body:
         - Opera
     validations:
       required: false
-
   - type: dropdown
     id: os
     attributes:
       label: "OS"
-      description: "What is the impacted environment?"
+      description: What is the impacted environment ?
       multiple: true
       options:
         - Windows
